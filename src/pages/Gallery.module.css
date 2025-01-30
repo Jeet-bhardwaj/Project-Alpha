@@ -1,0 +1,28 @@
+.gallery {
+     text-align: center;
+     padding: 4rem 2rem;
+   }
+   
+   .title {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: 1rem;
+   }
+   
+   .description {
+     font-size: 1.2rem;
+     color: #666;
+     margin-bottom: 2rem;
+   }
+   
+   .images {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+   }
+   
+   .images img {
+     width: 300px;
+     border-radius: 10px;
+   }
+   

@@ -1,0 +1,55 @@
+/* App.module.css */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Root Container */
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding-top: 80px; /* Prevents overlap with fixed navbar */
+}
+
+/* Page Wrapper */
+.pageWrapper {
+  width: 100%;
+  /* max-width: 1400px; */
+  /* padding: 20px; */
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .appContainer {
+    padding-top: 60px;
+  }
+
+  .pageWrapper {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appContainer {
+    padding-top: 50px;
+  }
+
+  .pageWrapper {
+    padding: 10px;
+  }
+}

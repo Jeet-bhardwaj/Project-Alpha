@@ -1,0 +1,32 @@
+.trainers {
+     text-align: center;
+     padding: 4rem 2rem;
+   }
+   
+   .title {
+     font-size: 2.5rem;
+     font-weight: bold;
+   }
+   
+   .description {
+     font-size: 1.2rem;
+     color: #666;
+     margin-bottom: 2rem;
+   }
+   
+   .profiles {
+     display: flex;
+     justify-content: center;
+     gap: 2rem;
+   }
+   
+   .trainer {
+     text-align: center;
+   }
+   
+   .trainer img {
+     width: 150px;
+     border-radius: 50%;
+     margin-bottom: 0.5rem;
+   }
+   

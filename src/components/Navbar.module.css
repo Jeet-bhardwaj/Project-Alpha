@@ -1,0 +1,128 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #222222;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.navbar:hover {
+  background-color: #333333;
+}
+
+/* Container */
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+.brandName {
+  color: #FFD700;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation Links */
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navLink:hover {
+  color: #FFD700;
+  transform: scale(1.1);
+}
+
+/* Join Button */
+.joinButton {
+  background: linear-gradient(135deg, #FFD700, #FFC700);
+  color: #222222;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
+
+.joinButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1068px) {
+  /* Hide normal navigation */
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(34, 34, 34, 0.95);
+    text-align: center;
+    padding: 1rem 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Show nav when active */
+  .nav.active {
+    display: flex;
+  }
+
+  .navLink {
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #FFD700;
+  }
+
+  /* Hamburger Icon */
+  .hamburger {
+    display: block;
+  }
+
+  /* Adjust Join Button */
+  .joinButton {
+    display: none;
+  }
+}
