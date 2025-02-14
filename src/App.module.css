@@ -8,6 +8,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Force scrollbar to always show to prevent layout shifts */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll; /* Force vertical scrollbar */
+  scrollbar-gutter: stable; /* Reserves space for scrollbar */
+  width: 100vw;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* Root Container */
 .appContainer {
   display: flex;
@@ -18,25 +34,30 @@
   background-color: #1a1a1a;
   color: white;
   text-align: center;
-  padding-top: 80px; /* Prevents overlap with fixed navbar */
+  padding-top: 120px; /* Space for navbar + topbar */
+  width: 100%;
+  position: relative;
+}
+
+/* When TopBar is not present */
+.noTopBar {
+  padding-top: 80px; /* Only space for navbar */
 }
 
 /* Page Wrapper */
 .pageWrapper {
   width: 100%;
-  /* max-width: 1400px; */
-  /* padding: 20px; */
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+  position: relative;
 }
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
   .appContainer {
-    padding-top: 60px;
+    padding-top: 130px; /* Adjusted for mobile */
+  }
+
+  .noTopBar {
+    padding-top: 70px;
   }
 
   .pageWrapper {
@@ -46,7 +67,11 @@ html {
 
 @media (max-width: 480px) {
   .appContainer {
-    padding-top: 50px;
+    padding-top: 120px;
+  }
+
+  .noTopBar {
+    padding-top: 60px;
   }
 
   .pageWrapper {

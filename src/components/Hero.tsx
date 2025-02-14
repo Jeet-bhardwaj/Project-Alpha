@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
@@ -8,7 +7,7 @@ const Hero = () => {
       <div 
         className={styles.background}
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')"
+          backgroundImage: "url('https://wallpapercave.com/wp/wp12424948.jpg')"
         }}
       />
       <div className={styles.content}>

@@ -1,0 +1,115 @@
+.socialContainer {
+    display: none; /* Hide by default for desktop */
+}
+
+/* Only show for mobile devices */
+@media (max-width: 768px) {
+    .socialContainer {
+        display: flex; /* Show for mobile */
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+    }
+    
+    .socialIcon {
+        width: 35px;
+        height: 35px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        color: #333;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .socialIcon:hover {
+        transform: translateX(-5px);
+    }
+
+    /* Specific hover colors for each platform */
+    .socialIcon:hover svg[stroke="currentColor"],
+    .socialIcon:hover svg[fill="currentColor"] {
+        color: #fff;
+    }
+
+    /* Instagram */
+    .socialIcon:nth-child(1):hover {
+        background: #E1306C;
+        color: white;
+    }
+
+    /* Facebook */
+    .socialIcon:nth-child(2):hover {
+        background: #4267B2;
+        color: white;
+    }
+
+    /* YouTube */
+    .socialIcon:nth-child(3):hover {
+        background: #FF0000;
+        color: white;
+    }
+}
+
+.socialIcon {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.socialIcon:hover {
+    transform: translateX(-5px);
+}
+
+/* Specific hover colors for each platform */
+.socialIcon:hover svg[stroke="currentColor"],
+.socialIcon:hover svg[fill="currentColor"] {
+    color: #fff;
+}
+
+/* Instagram */
+.socialIcon:nth-child(1):hover {
+    background: #E1306C;
+    color: white;
+}
+
+/* Facebook */
+.socialIcon:nth-child(2):hover {
+    background: #4267B2;
+    color: white;
+}
+
+/* YouTube */
+.socialIcon:nth-child(3):hover {
+    background: #FF0000;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .socialContainer {
+        right: 10px;
+    }
+    
+    .socialIcon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+} 

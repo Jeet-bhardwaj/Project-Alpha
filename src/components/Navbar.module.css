@@ -1,17 +1,63 @@
 /* Navbar Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap');
+
+/* Brand name */
+.brandName {
+  color: #FFD700;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1px;
+  /* text-shadow: 1px 1px 1px rgba(255, 215, 0, 0.6); */
+  transition: transform 0.3s ease-in-out;
+  animation: textAnimation 3s ease-in-out 1;
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
 .navbar {
   background-color: #222222;
   padding: 1rem 2rem;
   position: fixed;
-  top: 0;
+  top: 40px; /* Default position with TopBar */
   width: 100%;
-  z-index: 50;
+  z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, background-color, top;
 }
 
-.navbar:hover {
-  background-color: #333333;
+/* Add this new class */
+.noTopBar {
+  top: 0;
+}
+
+.scrolled {
+  top: 0;
+  background-color: rgba(34, 34, 34, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-100%);
 }
 
 /* Container */
@@ -35,30 +81,62 @@
   height: auto;
 }
 
-.brandName {
-  color: #FFD700;
-  font-size: 1.8rem;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-}
-
 /* Navigation Links */
 .nav {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .navLink {
   color: #ffffff;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: 600; /* Increased font weight */
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
+  padding: 10px 15px;
+  position: relative;
 }
 
 .navLink:hover {
   color: #FFD700;
   transform: scale(1.1);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(34, 34, 34, 0.95);
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdownContent {
+  display: flex;
+}
+
+.dropdownContent a {
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+  display: block;
+}
+
+.dropdownContent a:hover {
+  background: #FFD700;
+  color: #222222;
 }
 
 /* Join Button */
@@ -116,13 +194,46 @@
     color: #FFD700;
   }
 
+  /* Dropdown for Mobile */
+  .dropdownContent {
+    position: static;
+    background: none;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown:hover .dropdownContent {
+    display: flex;
+  }
+
+  .dropdownContent a {
+    color: #FFD700;
+    padding: 10px;
+  }
+
   /* Hamburger Icon */
   .hamburger {
     display: block;
   }
 
-  /* Adjust Join Button */
+  /* Hide Join Button */
   .joinButton {
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 70px;
+  }
+
+  .noTopBar {
+    top: 0;
+  }
+  
+  .hidden {
+    transform: translateY(-100%);
+  }
+  
+  /* ... rest of your mobile styles ... */
 }

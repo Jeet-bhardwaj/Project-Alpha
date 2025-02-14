@@ -1,0 +1,80 @@
+.topBar {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 0.5rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.visible {
+    transform: translateY(0);
+}
+
+.hidden {
+    transform: translateY(-100%);
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactInfo {
+    display: flex;
+    gap: 2rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.contactItem:hover {
+    color: #FFD700;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.socialLinks a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLinks a:hover {
+    color: #FFD700;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contactInfo {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .topBar {
+        padding: 0.75rem 0;
+    }
+} 

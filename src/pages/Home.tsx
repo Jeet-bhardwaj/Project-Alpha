@@ -1,12 +1,18 @@
 import styles from "./Home.module.css";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import Reviews from "../components/Reviews";
 import Footer from "../components/Footer";
+import GoogleReviews from "../components/GoogleReviews";
+import Carousel from "../components/Carousel";
+import TopBar from "../components/TopBar";
 
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
+            <TopBar />
+            <div className={styles.section}>
+                <Carousel />
+            </div>
             <div className={styles.section}>
                 <Hero />
             </div>
@@ -14,7 +20,7 @@ const Home = () => {
                 <Features />
             </div>
             <div className={styles.section}>
-                <Reviews />
+                <GoogleReviews />
             </div>
             <Footer />
         </div>

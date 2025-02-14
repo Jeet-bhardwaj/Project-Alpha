@@ -1,10 +1,10 @@
-import styles from "./Pricing.module.css";
+import styles from "./Servicess.module.css";
 
-const Pricing = () => {
+const Servicess = () => {
     return (
         <>
-            <div className={styles.pricing}>
-                <h1 className={styles.title}>Membership Pricing</h1>
+            <div className={styles.Servicess}>
+                <h1 className={styles.title}>Core Servicess</h1>
                 <div className={styles.plans}>
                     <div className={styles.plan}>
                         <h3>Basic Plan</h3>
@@ -20,4 +20,4 @@ const Pricing = () => {
     );
 };
 
-export default Pricing;
+export default Servicess;
