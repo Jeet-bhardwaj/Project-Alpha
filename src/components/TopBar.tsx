@@ -26,7 +26,7 @@ const TopBar = () => {
     return (
         <div className={`${styles.topBar} ${isVisible ? styles.visible : styles.hidden}`}>
             <div className={styles.container}>
-                <div className={styles.contactInfo}>
+                <div className={styles.leftSection}>
                     <a href="tel:+1234567890" className={styles.contactItem}>
                         <FaPhone /> +1 (234) 567-890
                     </a>
@@ -34,16 +34,21 @@ const TopBar = () => {
                         <FaEnvelope /> info@fitnessplatinum.com
                     </a>
                 </div>
-                <div className={styles.socialLinks}>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook />
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram />
-                    </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                        <FaYoutube />
-                    </a>
+                <div className={styles.centerSection}>
+                    <span className={styles.welcomeText}>Welcome to Fitness Platinum</span>
+                </div>
+                <div className={styles.rightSection}>
+                    <div className={styles.socialLinks}>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                            <FaYoutube />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

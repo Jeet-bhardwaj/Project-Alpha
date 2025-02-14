@@ -22,9 +22,25 @@
     max-width: 1800px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    gap: 1rem;
+}
+
+.leftSection {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.centerSection {
+    text-align: center;
+}
+
+.rightSection {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .contactInfo {
@@ -62,19 +78,34 @@
     transform: translateY(-2px);
 }
 
+.welcomeText {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .contactInfo {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-    }
-
     .topBar {
-        padding: 0.75rem 0;
+        display: none; /* Hide the entire TopBar on mobile */
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .leftSection {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .centerSection {
+        order: -1;
+    }
+
+    .rightSection {
+        justify-content: center;
     }
 } 

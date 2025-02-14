@@ -17,10 +17,10 @@ const AppContent = () => {
 
   return (
     <>
-      {isHomePage && <TopBar />}
+      <TopBar />
       <Navbar />
-      <SocialMedia />
-      <div className={`${styles.appContainer} ${!isHomePage ? styles.noTopBar : ''}`}>
+      {isHomePage && <SocialMedia />}
+      <div className={styles.appContainer}>
         <div className={styles.pageWrapper}>
           <Routes>
             <Route path="/" element={<Home />} />

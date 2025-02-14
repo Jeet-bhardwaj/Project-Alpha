@@ -4,12 +4,10 @@ import Features from "../components/Features";
 import Footer from "../components/Footer";
 import GoogleReviews from "../components/GoogleReviews";
 import Carousel from "../components/Carousel";
-import TopBar from "../components/TopBar";
 
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            <TopBar />
             <div className={styles.section}>
                 <Carousel />
             </div>
