@@ -64,10 +64,132 @@
 }
 
 .adminDashboard {
+  padding: 2rem;
+}
+
+.uploadSection {
+  margin-bottom: 2rem;
+}
+
+.uploadForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fileUploadArea {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.previewArea {
+  width: 100%;
+  height: 200px;
   display: flex;
-  min-height: 100vh;
-  padding-top: 80px;
-  background-color: #f5f5f5;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewArea img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.uploadPlaceholder {
+  text-align: center;
+  color: #666;
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.formFields {
+  margin-top: 1rem;
+}
+
+.inputGroup {
+  margin-bottom: 1rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.imageItem {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageItem img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.deleteButton:hover {
+  color: #ff0000;
 }
 
 .sidebar {
@@ -125,94 +247,6 @@
   margin-top: 2rem;
 }
 
-.fileUploadArea {
-  position: relative;
-  height: 300px;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.previewArea {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.previewArea img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.uploadPlaceholder {
-  text-align: center;
-  color: #666;
-}
-
-.uploadPlaceholder svg {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.fileInput {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.formFields {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.inputGroup label {
-  font-weight: 600;
-  color: #444;
-}
-
-.inputGroup input {
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.submitButton {
-  margin-top: auto;
-  padding: 1rem;
-  background-color: #FFD700;
-  color: #222;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.submitButton:hover {
-  background-color: #ffc107;
-  transform: translateY(-2px);
-}
-
-.submitButton:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 .filterControls {
   display: flex;
   gap: 1rem;
@@ -225,12 +259,6 @@
   border-radius: 8px;
   font-size: 1rem;
   min-width: 200px;
-}
-
-.imageGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
 }
 
 .imageCard {
@@ -254,39 +282,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.imageOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.imageWrapper:hover .imageOverlay {
-  opacity: 1;
-}
-
-.deleteButton {
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.deleteButton:hover {
-  background: #c82333;
-  transform: scale(1.1);
 }
 
 .imageInfo {
