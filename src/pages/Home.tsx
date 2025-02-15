@@ -8,9 +8,7 @@ import Carousel from "../components/Carousel";
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            <div className={styles.section}>
-                <Carousel />
-            </div>
+            <Carousel />
             <div className={styles.section}>
                 <Hero />
             </div>

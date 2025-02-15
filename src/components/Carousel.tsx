@@ -23,7 +23,8 @@ const Carousel = () => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-
+        
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -55,13 +56,14 @@ const Carousel = () => {
             <button className={`${styles.arrow} ${styles.prevArrow}`} onClick={handlePrev}>
                 &#8249;
             </button>
-            <AnimatePresence mode='wait'>
+            <AnimatePresence mode='wait' initial={false}>
                 <motion.img
                     key={currentIndex}
                     src={images[currentIndex]}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    alt={`Slide ${currentIndex + 1}`}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 1 }}
                     className={styles.carouselImage}
                 />
