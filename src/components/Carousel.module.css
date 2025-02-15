@@ -11,7 +11,7 @@
 .carouselImage {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Changed to contain to maintain aspect ratio */
+    object-fit: cover; /* Change to cover for full image display */
     background-color: #000;
 }
 

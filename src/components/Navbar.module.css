@@ -223,17 +223,10 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    top: 70px;
-  }
-
-  .noTopBar {
-    top: 0;
-  }
   
-  .hidden {
-    transform: translateY(-100%);
-  }
+  
+  
+
   
   /* ... rest of your mobile styles ... */
 }

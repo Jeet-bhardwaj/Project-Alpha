@@ -1,5 +1,5 @@
 .topBar {
-    background-color: #1a1a1a;
+    background-color: #000000;
     color: #ffffff;
     padding: 0.5rem 0;
     position: fixed;
@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #ffffff;
+    color: #FFD700;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
@@ -68,7 +68,7 @@
 }
 
 .socialLinks a {
-    color: #ffffff;
+    color: #FFD700;
     font-size: 1.2rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -108,4 +108,11 @@
     .rightSection {
         justify-content: center;
     }
+}
+
+.page-slider .slick-slide img {
+    height: auto;
+    width: 100%;
+    object-fit: contain !important;
+    position: relative;
 } 
