@@ -115,13 +115,6 @@ const Navbar = () => {
                     </div>
                     <Link
                         className={styles.navLink}
-                        to="/Contact"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Contact
-                    </Link>
-                    <Link
-                        className={styles.navLink}
                         to="/About"
                         onClick={() => setMenuOpen(false)}
                     >

@@ -166,18 +166,8 @@
   cursor: pointer;
 }
 
-/* Admin Link Styling */
-.adminLink {
-    color: #FFD700 !important;
-    border: 1px solid #FFD700;
-    border-radius: 4px;
-    padding: 8px 16px !important;
-}
 
-.adminLink:hover {
-    background-color: #FFD700;
-    color: #222222 !important;
-}
+
 
 /* Responsive Design */
 @media (max-width: 1068px) {
