@@ -1,0 +1,353 @@
+.adminContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem 0;
+}
+
+.uploadForm input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.uploadForm button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.uploadForm button:disabled {
+  background-color: #ccc;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.imageCard {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.imageCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.imageInfo {
+  padding: 1rem;
+}
+
+.imageInfo button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.adminDashboard {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 80px;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #222;
+  padding: 2rem 1rem;
+  color: white;
+  position: fixed;
+  height: calc(100vh - 80px);
+}
+
+.sidebar h2 {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.tabButton {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.tabButton:hover, .tabButton.active {
+  background-color: #FFD700;
+  color: #222;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.uploadSection, .manageSection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.uploadForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.fileUploadArea {
+  position: relative;
+  height: 300px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.previewArea {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewArea img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.uploadPlaceholder {
+  text-align: center;
+  color: #666;
+}
+
+.uploadPlaceholder svg {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #444;
+}
+
+.inputGroup input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.submitButton {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: #FFD700;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #ffc107;
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.filterControls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.searchBar input, .categoryFilter select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.imageCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.imageCard:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 200px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageWrapper:hover .imageOverlay {
+  opacity: 1;
+}
+
+.deleteButton {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+  background: #c82333;
+  transform: scale(1.1);
+}
+
+.imageInfo {
+  padding: 1rem;
+}
+
+.imageInfo h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.category, .date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-right: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+  }
+  
+  .sidebar h2 {
+    display: none;
+  }
+  
+  .tabButton span {
+    display: none;
+  }
+  
+  .mainContent {
+    margin-left: 80px;
+  }
+  
+  .uploadForm {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .adminDashboard {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 1rem;
+  }
+  
+  .mainContent {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .filterControls {
+    flex-direction: column;
+  }
+} 

@@ -127,6 +127,15 @@ const Navbar = () => {
                     >
                         About
                     </Link>
+                    
+                    {/* Add Admin Link */}
+                    <Link
+                        className={`${styles.navLink} ${styles.adminLink}`}
+                        to="/admin"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Admin
+                    </Link>
                 </div>
 
                 {/* Join Now Button */}

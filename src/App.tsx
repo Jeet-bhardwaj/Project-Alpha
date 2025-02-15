@@ -9,6 +9,7 @@ import styles from "./App.module.css"; // Import CSS
 import Servicess from "./pages/Servicess";
 import SocialMedia from "./components/SocialMedia";
 import TopBar from "./components/TopBar";
+import Admin from "./pages/Admin";
 
 // Create a wrapper component to use useLocation
 const AppContent = () => {
@@ -29,6 +30,7 @@ const AppContent = () => {
             <Route path="/Servicess" element={<Servicess />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
       </div>
