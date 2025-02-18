@@ -1,19 +1,39 @@
 import { useEffect, useState } from 'react';
 import styles from "./Gallery.module.css";
+import { Cloudinary } from 'cloudinary-core';
 
 interface Image {
   url: string;
   name: string;
-  storageRef: string;
 }
+
+const cloudinary = new Cloudinary({ cloud_name: 'dtnakrubh' }); // Use correct Cloudinary name
 
 const Gallery = () => {
   const [images, setImages] = useState<Image[]>([]);
 
   useEffect(() => {
-    // Get images from localStorage
-    const storedImages = JSON.parse(localStorage.getItem('gymImages') || '[]');
-    setImages(storedImages);
+    // Fetch images from backend API
+    const fetchImages = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/images'); // Correct API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch images');
+        }
+        const data = await response.json();
+
+        const fetchedImages = data.map((img: any) => ({
+          url: img.url, // Directly use secure_url from backend
+          name: img.public_id
+        }));
+
+        setImages(fetchedImages);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages();
   }, []);
 
   return (

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useMemo } from "react";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Trainers from "./pages/Trainers";
@@ -11,29 +12,29 @@ import SocialMedia from "./components/SocialMedia";
 import TopBar from "./components/TopBar";
 import Admin from "./pages/Admin";
 
-// Create a wrapper component to use useLocation
+// Wrapper Component to handle Layout and Routing
 const AppContent = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = useMemo(() => location.pathname === '/', [location.pathname]);
 
   return (
     <>
       <TopBar />
       <Navbar />
       {isHomePage && <SocialMedia />}
-      <div className={styles.appContainer}>
+      <main className={styles.appContainer}>
         <div className={styles.pageWrapper}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Gallery" element={<Gallery />} />
-            <Route path="/Trainers" element={<Trainers />} />
-            <Route path="/Servicess" element={<Servicess />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/trainers" element={<Trainers />} />
+            <Route path="/services" element={<Servicess />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
-      </div>
+      </main>
     </>
   );
 };
