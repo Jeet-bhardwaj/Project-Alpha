@@ -1,63 +1,64 @@
 import React from 'react';
+import styles from './ServiceCSS/Calisthenics.module.css';
 
-const Calisthenics: React.FC = () => {
+const ServicesPage = () => {
+  const services = [
+    {
+      title: "Bodyweight Basics",
+      description: "Master fundamental calisthenics movements including push-ups, pull-ups, and squats with proper form and progression techniques.",
+      image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      title: "Advanced Skills",
+      description: "Learn impressive skills like muscle-ups, handstands, human flag, and front lever through structured progression programs.",
+      image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      title: "Strength & Mobility",
+      description: "Develop full-body strength and flexibility through targeted mobility work and progressive calisthenics exercises.",
+      image: "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      title: "Group Training",
+      description: "Join our motivating group sessions where you'll train alongside others while receiving personalized guidance.",
+      image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      title: "Skills Workshop",
+      description: "Specialized workshops focusing on specific calisthenics skills, perfect for breaking through plateaus.",
+      image: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      title: "Custom Programs",
+      description: "Get a tailored calisthenics program designed specifically for your goals and current fitness level.",
+      image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1000&auto=format&fit=crop"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-900 mb-12">
-          Calisthenics Training
-        </h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Exercise Cards */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img 
-              src="/images/pull-ups.jpg" 
-              alt="Pull-ups exercise"
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pull-ups</h3>
-              <p className="text-gray-600">Master the fundamental upper body exercise for building strength and muscle.</p>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <h1 className={styles.title}>Calisthenics Training</h1>
+        <div className={styles.grid}>
+          {services.map((service, index) => (
+            <div className={styles.card} key={index}>
+              <div className={styles.imageContainer}>
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.content}>
+                <h2 className={styles.serviceTitle}>{service.title}</h2>
+                <p className={styles.description}>{service.description}</p>
+              </div>
             </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img 
-              src="/images/push-ups.jpg" 
-              alt="Push-ups exercise"
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Push-ups</h3>
-              <p className="text-gray-600">Develop chest, shoulder, and core strength with this classic exercise.</p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img 
-              src="/images/handstand.jpg" 
-              alt="Handstand training"
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Handstand</h3>
-              <p className="text-gray-600">Learn the art of balance and build incredible shoulder strength.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-xl text-gray-700 mb-8">
-            Transform your body using nothing but your own bodyweight
-          </p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-            Start Your Journey
-          </button>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default Calisthenics;
+export default ServicesPage;
