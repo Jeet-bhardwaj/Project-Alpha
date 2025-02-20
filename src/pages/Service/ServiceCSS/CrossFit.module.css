@@ -3,7 +3,7 @@
     background-color: #1a1a1a;
     padding: 4rem 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGd5bXxlbnwwfHwwfHx8MA%3D%3D'); /* Make sure to add an appropriate background image */
+      url('/images/crossfit-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -94,7 +94,6 @@
     font-size: 1.1rem;
 }
 
-/* Media Queries */
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
@@ -139,5 +138,4 @@
     .description {
         font-size: 1rem;
     }
-}
-  
+} 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './ServiceCSS/Cardio.module.css';
 
 const Cardio: React.FC = () => {
@@ -7,22 +6,22 @@ const Cardio: React.FC = () => {
     {
       title: "High-Intensity Interval Training (HIIT)",
       description: "Maximize calorie burn and improve endurance with our HIIT sessions. Perfect for efficient, effective workouts.",
-      image: "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?q=80&w=1000&auto=format&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1664910207555-fac63513e7ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       title: "Endurance Training",
       description: "Build stamina and improve your long-distance performance through structured cardio programs.",
-      image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1664301226369-1b8fdf5bef6f?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       title: "Circuit Training",
       description: "Combine cardio and strength exercises for full-body workouts that boost your overall fitness.",
-      image: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?q=80&w=1000&auto=format&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1664299680539-a53bd5d597ed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       title: "Group Cardio Classes",
       description: "Join energetic group sessions with motivating instructors and like-minded fitness enthusiasts.",
-      image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1000&auto=format&fit=crop"
+      image: "https://media.istockphoto.com/id/1768444808/photo/muscle-health-workout-and-training-with-retirement-community.webp?a=1&b=1&s=612x612&w=0&k=20&c=hnHU8w0IwxSSeGMYMd27Wz5_AdaJJ_M70_IZAg77AB4="
     },
     {
       title: "Personalized Programs",
@@ -32,7 +31,7 @@ const Cardio: React.FC = () => {
     {
       title: "Heart Rate Training",
       description: "Learn to optimize your workouts using heart rate zones for maximum cardiovascular benefits.",
-      image: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=1000&auto=format&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1661766044121-f6325da7b145?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8SGVhcnQlMjBSYXRlJTIwVHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
     }
   ];
 
