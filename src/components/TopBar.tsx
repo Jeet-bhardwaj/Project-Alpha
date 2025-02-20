@@ -28,10 +28,10 @@ const TopBar = () => {
             <div className={styles.container}>
                 <div className={styles.leftSection}>
                     <a href="tel:+1234567890" className={styles.contactItem}>
-                        <FaPhone /> +1 (234) 567-890
+                        <FaPhone /> +91 9097936714
                     </a>
                     <a href="mailto:info@fitnessplatinum.com" className={styles.contactItem}>
-                        <FaEnvelope /> info@fitnessplatinum.com
+                        <FaEnvelope /> fitnessplatinum@gmail.com
                     </a>
                 </div>
                 <div className={styles.centerSection}>

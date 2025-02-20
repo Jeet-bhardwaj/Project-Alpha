@@ -8,5 +8,9 @@
 
 .section {
     width: 100%;
-    padding: 2rem 0;
+}
+
+/* Remove padding for Google Reviews section specifically */
+.section:nth-child(4) {
+    padding: 0;
 }

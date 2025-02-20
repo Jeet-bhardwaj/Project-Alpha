@@ -85,12 +85,13 @@
 
 @media (max-width: 768px) {
     .topBar {
-        display: none; /* Hide the entire TopBar on mobile */
+        display: block; /* Show the TopBar on mobile */
+        padding: 0.3rem 0;
     }
 
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto;
         gap: 0.5rem;
         padding: 0.5rem;
     }
@@ -101,12 +102,16 @@
         gap: 0.5rem;
     }
 
+    .leftSection a[href^="mailto"] {
+        display: none; /* Hide email on mobile */
+    }
+
     .centerSection {
         order: -1;
     }
 
     .rightSection {
-        justify-content: center;
+        display: none; /* Hide social links on mobile */
     }
 }
 

@@ -1,0 +1,95 @@
+.registrationContainer {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.registrationContainer h2 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.registrationContainer p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-weight: 500;
+    color: #333;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+.submitButton {
+    background-color: #000000;
+    color: #FFD700;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #FFD700;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .registrationContainer {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .registrationContainer h2 {
+        font-size: 1.5rem;
+    }
+
+    .form {
+        gap: 1rem;
+    }
+
+    .formGroup input,
+    .formGroup select {
+        padding: 0.7rem;
+    }
+
+    .submitButton {
+        padding: 0.8rem;
+    }
+} 
