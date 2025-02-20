@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import GoogleReviews from "../components/GoogleReviews";
 import Carousel from "../components/Carousel";
 import Gallery from "../pages/Gallery";
+import CalorieDeficit from "../components/CallaryDeficate";
 
 const Home = () => {
     return (
@@ -15,6 +16,9 @@ const Home = () => {
             </div>
             <div className={styles.section}>
                 <Features />
+            </div>
+            <div className={styles.section}>
+                <CalorieDeficit />
             </div>
             <div className={styles.section}>
                 <GoogleReviews />

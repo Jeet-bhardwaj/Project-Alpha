@@ -1,5 +1,199 @@
 .about {
-     text-align: center;
-     padding: 4rem 2rem;
-   }
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                url('/images/gym-pattern.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.title {
+    color: #333;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4444, #ff8c00);
+    border-radius: 2px;
+}
+
+.infoSection {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.infoSection:hover {
+    transform: translateY(-5px);
+}
+
+.infoSection h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.infoSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #ff4444;
+    border-radius: 2px;
+}
+
+.infoSection p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.locationInfo {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+.addressBox {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border-left: 5px solid #ff4444;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.addressBox:hover {
+    transform: translateX(10px);
+    background-color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mapIcon {
+    color: #ff4444;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.addressBox:hover .mapIcon {
+    transform: scale(1.2);
+}
+
+.addressBox p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.map {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.map:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Stats Section */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.statItem {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.statItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4444;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    color: #666;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        padding: 2rem 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .infoSection {
+        padding: 1.5rem;
+    }
+
+    .addressBox {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .map {
+        height: 300px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .locationInfo {
+        grid-template-columns: 1fr 2fr;
+    }
+}
    

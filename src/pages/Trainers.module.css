@@ -1,12 +1,16 @@
 .trainers {
     padding: 4rem 2rem;
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    background: linear-gradient(rgba(2, 61, 120, 0.792), rgba(182, 179, 232, 0)),
+                url('https://img.freepik.com/free-vector/realistic-boxing-ring-background_52683-134994.jpg?t=st=1740076732~exp=1740080332~hmac=1aebd754cd5943089c0ef6d7edc9184263916319ba17901b98a12a80a51ca550&w=1380');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .title {
     text-align: center;
     font-size: 2.5rem;
-    color: #333;
+    color: #ffd500;
     margin-bottom: 1rem;
 }
 

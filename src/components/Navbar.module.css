@@ -90,17 +90,27 @@
 
 .navLink {
   color: #ffffff;
-  font-size: 1.2rem; /* Increased font size */
-  font-weight: 600; /* Increased font weight */
+  font-size: 1.2rem;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
   padding: 10px 15px;
   position: relative;
 }
 
-.navLink:hover {
-  color: #FFD700;
-  transform: scale(1.1);
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFD700;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
 }
 
 /* Dropdown Menu */
@@ -161,13 +171,54 @@
 /* Hamburger Menu (Mobile) */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
-  color: white;
+  width: 45px;
+  height: 45px;
+  position: relative;
   cursor: pointer;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  overflow: hidden;
 }
 
+.hamburger svg {
+  color: #FFD700;
+  font-size: 1.8rem;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
 
+.hamburger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
+.hamburger:hover {
+  background: rgba(255, 215, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.hamburger:hover::before {
+  opacity: 1;
+}
+
+.hamburger:hover svg {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+  background: rgba(255, 215, 0, 0.2);
+}
 
 /* Responsive Design */
 @media (max-width: 1068px) {
@@ -214,9 +265,49 @@
     padding: 10px;
   }
 
-  /* Hamburger Icon */
+  /* Enhanced Hamburger Icon */
   .hamburger {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hamburger.active {
+    background: rgba(255, 215, 0, 0.2);
+    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.1);
+  }
+
+  .hamburger.active svg {
+    transform: rotate(90deg);
+  }
+
+  /* Enhanced mobile menu animation */
+  .nav {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  .nav.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(10px);
+  }
+
+  .navLink {
+    transform: translateX(20px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    transition-delay: calc(var(--index) * 0.1s);
+  }
+
+  .nav.active .navLink {
+    transform: translateX(0);
+    opacity: 1;
   }
 
   /* Hide Join Button */
@@ -227,6 +318,32 @@
   .adminLink {
     margin: 10px auto;
     width: fit-content;
+  }
+}
+
+/* Additional mobile menu animations */
+@media (max-width: 1068px) {
+  .nav {
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .navLink {
+    transform: translateX(-10px);
+    transition: transform 0.3s ease-out;
+  }
+
+  .nav.active .navLink {
+    transform: translateX(0);
   }
 }
 

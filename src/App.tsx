@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Trainers from "./pages/Trainers";
@@ -17,11 +17,13 @@ import StrengthTraining from "./pages/Service/StrengthTraining";
 import Yoga from "./pages/Service/Yoga";
 import Zumba from "./pages/Service/Zumba";
 import Calisthenics from "./pages/Service/Calisthenics";
-
+import Registration from "./components/Registration";
+import CalorieDeficit from "./components/CallaryDeficate";
 // Wrapper Component to handle Layout and Routing
 const AppContent = () => {
   const location = useLocation();
   const isHomePage = useMemo(() => location.pathname === '/', [location.pathname]);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
   return (
     <>
@@ -44,6 +46,8 @@ const AppContent = () => {
             <Route path="/services/yoga" element={<Yoga />} />
             <Route path="/services/zumba" element={<Zumba />} />
             <Route path="/services/Calisthenics" element={<Calisthenics />} />
+            <Route path="/registration" element={<Registration isOpen={isRegistrationOpen} onClose={() => setIsRegistrationOpen(false)} />} />
+            <Route path="/calorie-deficit" element={<CalorieDeficit />} />
           </Routes>
         </div>
       </main>

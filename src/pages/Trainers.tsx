@@ -25,10 +25,10 @@ const Trainers = () => {
                     <div className={styles.imageWrapper}>
                         <img
                             src="https://source.unsplash.com/400x500/?personal-trainer,woman"
-                            alt="Jane Smith"
+                            alt="Suraj Shukla"
                         />
                     </div>
-                    <h3>Jane Smith</h3>
+                    <h3>Suraj Shukla</h3>
                     <p className={styles.specialty}>Yoga & Flexibility</p>
                     <p className={styles.bio}>
                         "Bringing balance to body and mind through mindful movement"
@@ -38,10 +38,10 @@ const Trainers = () => {
                     <div className={styles.imageWrapper}>
                         <img
                             src="https://source.unsplash.com/400x500/?gym-trainer,man"
-                            alt="Mike Johnson"
+                            alt="Jeet bhardwaj"
                         />
                     </div>
-                    <h3>Mike Johnson</h3>
+                    <h3>Jeet bhardwaj</h3>
                     <p className={styles.specialty}>HIIT & Cardio</p>
                     <p className={styles.bio}>
                         "Push your limits and transform your cardiovascular fitness"
