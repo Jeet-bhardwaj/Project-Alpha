@@ -11,6 +11,12 @@ import Servicess from "./pages/Servicess";
 import SocialMedia from "./components/SocialMedia";
 import TopBar from "./components/TopBar";
 import Admin from "./pages/Admin";
+import Cardio from "./pages/Service/Cardio";
+import CrossFit from "./pages/Service/CrossFit";
+import StrengthTraining from "./pages/Service/StrengthTraining";
+import Yoga from "./pages/Service/Yoga";
+import Zumba from "./pages/Service/Zumba";
+import Calisthenics from "./pages/Service/Calisthenics";
 
 // Wrapper Component to handle Layout and Routing
 const AppContent = () => {
@@ -32,6 +38,12 @@ const AppContent = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/services/cardio" element={<Cardio />} />
+            <Route path="/services/crossfit" element={<CrossFit />} />
+            <Route path="/services/strength-training" element={<StrengthTraining />} />
+            <Route path="/services/yoga" element={<Yoga />} />
+            <Route path="/services/zumba" element={<Zumba />} />
+            <Route path="/services/Calisthenics" element={<Calisthenics />} />
           </Routes>
         </div>
       </main>

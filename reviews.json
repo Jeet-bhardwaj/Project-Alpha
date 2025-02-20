@@ -5,13 +5,28 @@
         "Userimg": "https://lh3.googleusercontent.com/a/ACg8ocJ1x2vw98K3brJM8Sougbeb65OAI8kwCQFTS0cVWS4o-bX6S8vf=w40-h40-p-rp-mo-br100",
         "name": "Jeet Bhardwaj",
         "rating": 5,
-        "discription": "I ve been going to this gym for a while now, and I'm extremely satisfied with my experience. The facility is clean, well-maintained, and equipped with a variety of machines for cardio and strength training. The trainers are knowledgeable, approachable, and always ready to guide you, whether you're a beginner or experienced. The gym has a motivating atmosphere that keeps you focused on your fitness goals. I've seen great improvements in my fitness since joining. Highly recommended for anyone looking for a great place to work out!",
-        "photo": "https://www.google.com/maps/api/places/v1/images?place_id=.../0.25m/0jbtH6Yf73gAA&output=png"
+        "discription": "I ve been going to this gym for a while now, and I'm extremely satisfied with my experience. The facility is clean, well-maintained, and equipped with a variety of machines for cardio and strength training. The trainers are knowledgeable, approachable, and always ready to guide you, whether you're a beginner or experienced. The gym has a motivating atmosphere that keeps you focused on your fitness goals. I've seen great improvements in my fitness since joining. Highly recommended for anyone looking for a great place to work out!"
       },
       {
-        "name": "Jane Smith",
+        "id": 2,
+        "Userimg": "https://lh3.googleusercontent.com/a-/ALV-UjUSyxwdiryKtql8hq3zk36ucGcc4lUXnWHi-Y-1iSTdabTlZtjT=w45-h45-p-rp-mo-br100",
+        "name": "Kumar Anshuman Raj",
+        "rating": 4,
+        "discription": "The gym boasts a wide range of modern equipment, including cardio machines, weightlifting stations, and functional training tools. Everything is well-maintained, and I've never had to wait long to use the equipment during peak hours.The staff is friendly and knowledgeable.The vibe is motivating!  Membership prices are reasonable for the services provided. They often have promotions for new members, which is a nice bonus."
+      },
+      {
+        "id": 3,
+        "Userimg": "https://lh3.googleusercontent.com/a-/ALV-UjVgtePF98JTvUlmSX5j5bBXZHvkIPaoqZGGJQ6-0mpDlLmZbhcX-g=w45-h45-p-rp-mo-br100",
+        "name": "Kumar Anshuman Raj",
         "rating": 5,
-        "photo": "https://www.google.com/maps/api/places/v1/images?place_id=.../0.25m/0jbtH6Yf73gAA&output=png"
+        "discription": "Nyc gym for patna all equipment are available and enough space for exercise and thank you for boxer bhaiya for pt training and nice behaviour...❣️❣️"
+      },
+      {
+        "id": 4,
+        "Userimg": "https://lh5.googleusercontent.com/p/AF1QipNT2RDgKX2tbSJKnRjS9fNSPn2zlk7sjBaqEB-A=w426-h240-k-no",
+        "name": "Sachin Roy",
+        "rating": 4,
+        "discription": "Great experience, And the gym owner is very supportive and also a great trainer. The fee structure is also very low that anyone can afford it so i recomend everyone who want a good  physique please come and change your physique totally . ☺️"
       }
     ]
-  }
+}

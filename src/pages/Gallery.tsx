@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from "./Gallery.module.css";
-import { Cloudinary } from 'cloudinary-core';
+// import { Cloudinary } from 'cloudinary-core';
 
 interface Image {
   url: string;
@@ -10,7 +10,7 @@ interface Image {
 
 const CACHE_KEY = 'gallery_images_cache';
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-const cloudinary = new Cloudinary({ cloud_name: 'dtnakrubh' });
+// const cloudinary = new Cloudinary({ cloud_name: 'dtnakrubh' });
 
 const Gallery = () => {
   const [images, setImages] = useState<Image[]>([]);

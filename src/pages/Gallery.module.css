@@ -1,6 +1,6 @@
 .gallery {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%);
+  background: linear-gradient(135deg, #00000007 0%, #ffda06 100%);
   min-height: 100vh;
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.05);
 }
