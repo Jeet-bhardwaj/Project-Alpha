@@ -2,31 +2,40 @@ import { useState, useEffect } from 'react';
 import styles from './Carousel.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const desktopImages = [
-    '/src/gym Carousel/Fitness Platinum (1).png',
-    '/src/gym Carousel/Fitness Platinum.png',
-    '/src/gym Carousel/targets.png'
-];
-
-const mobileImages = [
-    '/src/gym Carousel/mob-gym/mob-gym-1.png',
-    '/src/gym Carousel/mob-gym/mob-gym-2.png',
-    '/src/gym Carousel/mob-gym/mob-gym-3.png'
-];
-
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [desktopImages, setDesktopImages] = useState<string[]>([]);
+    const [mobileImages, setMobileImages] = useState<string[]>([]);
     const images = isMobile ? mobileImages : desktopImages;
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        
+
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/images');
+                if (!response.ok) throw new Error('Failed to fetch images');
+                const data = await response.json();
+                console.log('Fetched images:', data); // Log the fetched images
+                
+                // Separate images into desktop and mobile based on folder structure
+                setDesktopImages(data.filter((img: any) => img.public_id.startsWith('gym Carousel/')).map((img: any) => img.url));
+                setMobileImages(data.filter((img: any) => img.public_id.startsWith('mob-gym/')).map((img: any) => img.url));
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        };
+
+        fetchImages();
     }, []);
 
     useEffect(() => {

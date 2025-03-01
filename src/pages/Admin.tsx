@@ -12,8 +12,9 @@ const Admin = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [images, setImages] = useState<Image[]>([]);
+  const [imagesByFolder, setImagesByFolder] = useState<{ [key: string]: Image[] }>({});
   const [imageName, setImageName] = useState('');
+  const [selectedFolder, setSelectedFolder] = useState('fitness-platinum'); // Default folder
 
   // Load images when component mounts
   useEffect(() => {
@@ -25,11 +26,22 @@ const Admin = () => {
       const response = await fetch('http://localhost:5000/api/images');
       if (!response.ok) throw new Error('Failed to fetch images');
       const data = await response.json();
-      setImages(data.map((img: any) => ({
-        url: img.url,
-        name: img.public_id.split('/').pop()?.replace(/_/g, ' ') || 'Gym Image',
-        public_id: img.public_id
-      })));
+
+      // Group images by folder
+      const groupedImages: { [key: string]: Image[] } = {};
+      data.forEach((img: any) => {
+        const folder = img.public_id.split('/')[0]; // Get folder name from public_id
+        if (!groupedImages[folder]) {
+          groupedImages[folder] = [];
+        }
+        groupedImages[folder].push({
+          url: img.url,
+          name: img.public_id.split('/').pop()?.replace(/_/g, ' ') || 'Gym Image',
+          public_id: img.public_id
+        });
+      });
+
+      setImagesByFolder(groupedImages);
     } catch (error) {
       console.error('Error fetching images:', error);
       alert('Error loading images');
@@ -151,8 +163,17 @@ const Admin = () => {
         </form>
       </div>
 
+      <div className={styles.folderSelector}>
+        <label>Select Folder:</label>
+        <select value={selectedFolder} onChange={(e) => setSelectedFolder(e.target.value)}>
+          {Object.keys(imagesByFolder).map((folder) => (
+            <option key={folder} value={folder}>{folder}</option>
+          ))}
+        </select>
+      </div>
+
       <div className={styles.imageGrid}>
-        {images.map((image, index) => (
+        {imagesByFolder[selectedFolder]?.map((image, index) => (
           <div key={index} className={styles.imageItem}>
             <img src={image.url} alt={image.name} />
             <div className={styles.imageOverlay}>

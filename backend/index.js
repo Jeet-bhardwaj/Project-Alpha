@@ -21,12 +21,28 @@ app.get('/api/images', async (req, res) => {
   try {
     const result = await cloudinary.api.resources({
       type: 'upload',
-      prefix: 'fitness-platinum/', // Fetch images only from this folder
+      prefix: 'fitness-platinum/', // Fetch images from this folder
       max_results: 30
     });
 
-    // Extract only required details (URLs)
-    const images = result.resources.map((img) => ({
+    const carouselImages = await cloudinary.api.resources({
+      type: 'upload',
+      prefix: 'gym Carousel/', // Fetch images from gym Carousel folder
+      max_results: 30
+    });
+
+    const mobileImages = await cloudinary.api.resources({
+      type: 'upload',
+      prefix: 'mob-gym/', // Fetch images from mob-gym folder
+      max_results: 30
+    });
+
+    // Combine all images
+    const images = [
+      ...result.resources,
+      ...carouselImages.resources,
+      ...mobileImages.resources
+    ].map((img) => ({
       url: img.secure_url,
       public_id: img.public_id
     }));
