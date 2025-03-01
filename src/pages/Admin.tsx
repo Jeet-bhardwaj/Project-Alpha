@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Admin.module.css';
 import { FaUpload, FaTrash } from 'react-icons/fa';
-import { storage } from '../firebase/config';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 
 interface Image {
   url: string;
   name: string;
-  storageRef: string;
+  public_id: string;
 }
 
 const Admin = () => {
@@ -18,10 +16,25 @@ const Admin = () => {
   const [imageName, setImageName] = useState('');
 
   // Load images when component mounts
-  React.useEffect(() => {
-    const storedImages = JSON.parse(localStorage.getItem('gymImages') || '[]');
-    setImages(storedImages);
+  useEffect(() => {
+    fetchImages();
   }, []);
+
+  const fetchImages = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/images');
+      if (!response.ok) throw new Error('Failed to fetch images');
+      const data = await response.json();
+      setImages(data.map((img: any) => ({
+        url: img.url,
+        name: img.public_id.split('/').pop()?.replace(/_/g, ' ') || 'Gym Image',
+        public_id: img.public_id
+      })));
+    } catch (error) {
+      console.error('Error fetching images:', error);
+      alert('Error loading images');
+    }
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -46,27 +59,19 @@ const Admin = () => {
 
     setLoading(true);
     try {
-      // Create a unique filename
-      const filename = `${Date.now()}-${imageName}`;
-      const storageRef = `gym-images/${filename}`;
-      const fileRef = ref(storage, storageRef);
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      formData.append('name', imageName);
+
+      const response = await fetch('http://localhost:5000/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error('Upload failed');
       
-      // Upload the file
-      await uploadBytes(fileRef, selectedFile);
-      
-      // Get the download URL
-      const url = await getDownloadURL(fileRef);
-      
-      // Save the image data to localStorage
-      const imageData: Image = {
-        url,
-        name: imageName,
-        storageRef
-      };
-      
-      const updatedImages = [...images, imageData];
-      localStorage.setItem('gymImages', JSON.stringify(updatedImages));
-      setImages(updatedImages);
+      // Refresh images list
+      await fetchImages();
       
       // Reset form
       setSelectedFile(null);
@@ -81,17 +86,20 @@ const Admin = () => {
     }
   };
 
-  const handleDelete = async (image: Image, index: number) => {
+  const handleDelete = async (image: Image) => {
     try {
-      // Delete from Firebase Storage
-      const fileRef = ref(storage, image.storageRef);
-      await deleteObject(fileRef);
+      const response = await fetch('http://localhost:5000/api/delete', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ public_id: image.public_id }),
+      });
 
-      // Remove from local state and localStorage
-      const updatedImages = images.filter((_, i) => i !== index);
-      localStorage.setItem('gymImages', JSON.stringify(updatedImages));
-      setImages(updatedImages);
+      if (!response.ok) throw new Error('Delete failed');
 
+      // Refresh images list
+      await fetchImages();
       alert('Image deleted successfully!');
     } catch (error) {
       console.error('Error deleting image:', error);
@@ -150,7 +158,7 @@ const Admin = () => {
             <div className={styles.imageOverlay}>
               <p>{image.name}</p>
               <button 
-                onClick={() => handleDelete(image, index)}
+                onClick={() => handleDelete(image)}
                 className={styles.deleteButton}
               >
                 <FaTrash />
