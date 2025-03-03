@@ -171,7 +171,7 @@ const Admin = () => {
 
       <div className={styles.folderSelector}>
         <label>Select Folder:</label>
-        <select value={selectedFolder} onChange={(e) => setSelectedFolder(e.target.value)}>
+        <select value={selectedFolder} onChange={(e) => setSelectedFolder(e.target.value)} className={styles.folderSelector}>
           {Object.keys(imagesByFolder).map((folder) => (
             <option key={folder} value={folder}>{folder}</option>
           ))}

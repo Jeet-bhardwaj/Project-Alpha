@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import styles from "./Gallery.module.css";
-// import { Cloudinary } from 'cloudinary-core';
 
 interface Image {
   url: string;
-  name: string;
   lastUpdated?: number;
 }
 
 const CACHE_KEY = 'gallery_images_cache';
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-// const cloudinary = new Cloudinary({ cloud_name: 'dtnakrubh' });
 
 const Gallery = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -67,7 +64,6 @@ const Gallery = () => {
           .filter((img: any) => img.public_id.startsWith('fitness-platinum/'))
           .map((img: any) => ({
             url: img.url,
-            name: 'Gym Image', // Set a default name instead of using public_id
             lastUpdated: Date.now()
           }));
 
