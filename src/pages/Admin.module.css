@@ -65,7 +65,7 @@
 
 .adminDashboard {
   padding: 2rem;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   background-color: #f8f9fa;
   min-height: 100vh;
@@ -492,7 +492,7 @@
 /* Dashboard layout */
 .adminDashboard {
   padding: 2rem;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   background-color: #f8f9fa;
   min-height: 100vh;
@@ -543,6 +543,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .uploadSection, .manageSection {
@@ -807,6 +809,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .adminDashboard {
+    padding: 1rem;
+  }
+  
   .uploadForm {
     grid-template-columns: 1fr;
   }
