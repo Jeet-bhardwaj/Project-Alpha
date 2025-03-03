@@ -45,7 +45,7 @@ app.get('/api/images', async (req, res) => {
     ].map((img) => ({
       url: img.secure_url,
       public_id: img.public_id
-    }));
+    }));  
 
     res.json(images);
   } catch (error) {
@@ -65,9 +65,12 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
     const base64Image = Buffer.from(req.file.buffer).toString('base64');
     const dataURI = `data:${req.file.mimetype};base64,${base64Image}`;
 
+    // Get the folder name from the request body
+    const folderName = req.body.folder || 'fitness-platinum'; // Default to 'fitness-platinum' if not provided
+
     // Upload to Cloudinary
     const result = await cloudinary.uploader.upload(dataURI, {
-      folder: 'fitness-platinum',
+      folder: folderName,
       public_id: req.body.name.replace(/\s+/g, '_')
     });
 
@@ -82,16 +85,33 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 });
 
 // Delete endpoint
+app.use(express.json()); // Add this middleware to parse JSON requests
+
 app.delete('/api/delete', async (req, res) => {
   try {
     const { public_id } = req.body;
-    await cloudinary.uploader.destroy(public_id);
-    res.json({ message: 'Image deleted successfully' });
+
+    if (!public_id) {
+      return res.status(400).json({ error: 'Public ID is required' });
+    }
+
+    const response = await cloudinary.api.delete_resources([public_id], {
+      type: 'upload',
+      resource_type: 'image'
+    });
+
+    // Check if the image was deleted
+    if (response.deleted[public_id] === 'deleted') {
+      res.json({ message: 'Image deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Image not found' });
+    }
   } catch (error) {
     console.error('Error deleting from Cloudinary:', error);
-    res.status(500).send('Error deleting image');
+    res.status(500).json({ error: 'Error deleting image' });
   }
 });
+
 
 app.get('/', (req, res) => {
   res.send('hello world');

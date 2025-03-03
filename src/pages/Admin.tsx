@@ -74,6 +74,7 @@ const Admin = () => {
       const formData = new FormData();
       formData.append('image', selectedFile);
       formData.append('name', imageName);
+      formData.append('folder', selectedFolder);
 
       const response = await fetch('http://localhost:5000/api/upload', {
         method: 'POST',
@@ -110,9 +111,14 @@ const Admin = () => {
 
       if (!response.ok) throw new Error('Delete failed');
 
-      // Refresh images list
-      await fetchImages();
-      alert('Image deleted successfully!');
+      const result = await response.json();
+      if (result.message === 'Image deleted successfully') {
+        // Refresh images list
+        await fetchImages();
+        alert('Image deleted successfully!');
+      } else {
+        alert('Image not found');
+      }
     } catch (error) {
       console.error('Error deleting image:', error);
       alert('Error deleting image');

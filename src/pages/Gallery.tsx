@@ -62,11 +62,14 @@ const Gallery = () => {
         
         const data = await response.json();
 
-        const fetchedImages = data.map((img: any) => ({
-          url: img.url,
-          name: img.public_id.split('/').pop()?.replace(/_/g, ' ') || 'Gym Image',
-          lastUpdated: Date.now()
-        }));
+        // Filter images to only include those from the 'fitness-platinum' folder
+        const fetchedImages = data
+          .filter((img: any) => img.public_id.startsWith('fitness-platinum/'))
+          .map((img: any) => ({
+            url: img.url,
+            name: 'Gym Image', // Set a default name instead of using public_id
+            lastUpdated: Date.now()
+          }));
 
         setImages(fetchedImages);
         setCachedImages(fetchedImages);
@@ -130,7 +133,7 @@ const Gallery = () => {
           <div key={index} className={styles.imageContainer}>
             <img 
               src={image.url} 
-              alt={image.name}
+              alt="Gym Image"
               loading="lazy"
               fetchPriority={index < 4 ? "high" : "low"}
               decoding="async"
@@ -138,7 +141,6 @@ const Gallery = () => {
               height="300"
               style={{ contentVisibility: 'auto' }}
             />
-            <p className={styles.imageName}>{image.name}</p>
           </div>
         ))}
       </div>
