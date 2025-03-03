@@ -65,6 +65,19 @@
 
 .adminDashboard {
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboardTitle {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 1rem;
 }
 
 .uploadSection {
@@ -391,21 +404,32 @@
 /* Add these to your Admin.module.css file */
 .tabsContainer {
   display: flex;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
 .tabButton {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   background: #f0f0f0;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tabButton:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
 }
 
 .activeTab {
-  background: #007bff;
-  color: white;
+  background: #FFD700;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .trainersSection {
@@ -463,4 +487,335 @@
 .trainerInfo p {
   margin: 0;
   color: #666;
+}
+
+/* Dashboard layout */
+.adminDashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboardTitle {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid #FFD700;
+  padding-bottom: 1rem;
+}
+
+/* Tab navigation */
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.tabButton {
+  padding: 1rem 2rem;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tabButton:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.activeTab {
+  background: #FFD700;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Content sections */
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.uploadSection, .manageSection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #FFD700;
+}
+
+/* Upload form */
+.uploadForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.fileUploadArea {
+  grid-column: 1;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.fileUploadArea:hover {
+  border-color: #FFD700;
+}
+
+.previewArea {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.previewImage {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.uploadPlaceholder {
+  text-align: center;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.formFields {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #333;
+}
+
+.inputGroup input, .inputGroup select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.folderSelect {
+  cursor: pointer;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #FFD700;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #f0c800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.submitButton:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Image grid */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.imageCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.imageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 200px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+  color: #ff0000;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Trainer specific styles */
+.trainerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.trainerCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.trainerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.trainerCard .imageWrapper {
+  height: 250px;
+}
+
+.trainerInfo {
+  padding: 1.5rem;
+}
+
+.trainerInfo h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.specialty {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.deleteTrainerButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  background-color: #f8f9fa;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.deleteTrainerButton:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.noTrainers {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .uploadForm {
+    grid-template-columns: 1fr;
+  }
+  
+  .fileUploadArea, .formFields {
+    grid-column: 1;
+  }
+  
+  .imageGrid, .trainerGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }

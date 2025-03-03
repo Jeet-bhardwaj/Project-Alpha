@@ -188,7 +188,9 @@ const Admin = () => {
 
   return (
     <div className={styles.adminDashboard}>
-      <div className={styles.tabSelector}>
+      <h1 className={styles.dashboardTitle}>Admin Dashboard</h1>
+      
+      <div className={styles.tabsContainer}>
         <button 
           className={`${styles.tabButton} ${activeTab === 'images' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('images')}
@@ -204,17 +206,17 @@ const Admin = () => {
       </div>
 
       {activeTab === 'images' ? (
-        <>
+        <div className={styles.contentSection}>
           <div className={styles.uploadSection}>
-            <h2>Upload New Image</h2>
+            <h2 className={styles.sectionTitle}>Upload New Image</h2>
             <form onSubmit={handleUpload} className={styles.uploadForm}>
               <div className={styles.fileUploadArea}>
                 <div className={styles.previewArea}>
                   {previewUrl ? (
-                    <img src={previewUrl} alt="Preview" />
+                    <img src={previewUrl} alt="Preview" className={styles.previewImage} />
                   ) : (
                     <div className={styles.uploadPlaceholder}>
-                      <FaUpload />
+                      <FaUpload size={40} />
                       <p>Click or drag image to upload</p>
                     </div>
                   )}
@@ -240,6 +242,19 @@ const Admin = () => {
                   />
                 </div>
 
+                <div className={styles.inputGroup}>
+                  <label>Folder</label>
+                  <select 
+                    value={selectedFolder} 
+                    onChange={(e) => setSelectedFolder(e.target.value)}
+                    className={styles.folderSelect}
+                  >
+                    {Object.keys(imagesByFolder).map((folder) => (
+                      <option key={folder} value={folder}>{folder}</option>
+                    ))}
+                  </select>
+                </div>
+
                 <button type="submit" disabled={loading || !selectedFile} className={styles.submitButton}>
                   {loading ? 'Uploading...' : 'Upload Image'}
                 </button>
@@ -247,44 +262,54 @@ const Admin = () => {
             </form>
           </div>
 
-          <div className={styles.folderSelector}>
-            <label>Select Folder:</label>
-            <select value={selectedFolder} onChange={(e) => setSelectedFolder(e.target.value)} className={styles.folderSelector}>
-              {Object.keys(imagesByFolder).map((folder) => (
-                <option key={folder} value={folder}>{folder}</option>
-              ))}
-            </select>
-          </div>
+          <div className={styles.manageSection}>
+            <h2 className={styles.sectionTitle}>Manage Images</h2>
+            
+            <div className={styles.folderSelector}>
+              <label>Select Folder:</label>
+              <select 
+                value={selectedFolder} 
+                onChange={(e) => setSelectedFolder(e.target.value)}
+              >
+                {Object.keys(imagesByFolder).map((folder) => (
+                  <option key={folder} value={folder}>{folder}</option>
+                ))}
+              </select>
+            </div>
 
-          <div className={styles.imageGrid}>
-            {imagesByFolder[selectedFolder]?.map((image, index) => (
-              <div key={index} className={styles.imageItem}>
-                <img src={image.url} alt={image.name} />
-                <div className={styles.imageOverlay}>
-                  <p>{image.name}</p>
-                  <button 
-                    onClick={() => handleDelete(image)}
-                    className={styles.deleteButton}
-                  >
-                    <FaTrash />
-                  </button>
+            <div className={styles.imageGrid}>
+              {imagesByFolder[selectedFolder]?.map((image, index) => (
+                <div key={index} className={styles.imageCard}>
+                  <div className={styles.imageWrapper}>
+                    <img src={image.url} alt={image.name} />
+                    <div className={styles.imageOverlay}>
+                      <p>{image.name}</p>
+                      <button 
+                        onClick={() => handleDelete(image)}
+                        className={styles.deleteButton}
+                        title="Delete image"
+                      >
+                        <FaTrash />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </>
+        </div>
       ) : (
-        <>
+        <div className={styles.contentSection}>
           <div className={styles.uploadSection}>
-            <h2>Add New Trainer</h2>
+            <h2 className={styles.sectionTitle}>Add New Trainer</h2>
             <form onSubmit={handleTrainerUpload} className={styles.uploadForm}>
               <div className={styles.fileUploadArea}>
                 <div className={styles.previewArea}>
                   {previewUrl ? (
-                    <img src={previewUrl} alt="Preview" />
+                    <img src={previewUrl} alt="Preview" className={styles.previewImage} />
                   ) : (
                     <div className={styles.uploadPlaceholder}>
-                      <FaUpload />
+                      <FaUpload size={40} />
                       <p>Click or drag trainer photo to upload</p>
                     </div>
                   )}
@@ -328,27 +353,32 @@ const Admin = () => {
             </form>
           </div>
 
-          <div className={styles.trainerGrid}>
-            <h2>Current Trainers</h2>
-            <div className={styles.imageGrid}>
+          <div className={styles.manageSection}>
+            <h2 className={styles.sectionTitle}>Current Trainers</h2>
+            <div className={styles.trainerGrid}>
               {trainers.map((trainer, index) => (
-                <div key={index} className={styles.imageItem}>
-                  <img src={trainer.url} alt={trainer.name} />
-                  <div className={styles.imageOverlay}>
-                    <p>{trainer.name}</p>
-                    <p>{trainer.specialty}</p>
+                <div key={index} className={styles.trainerCard}>
+                  <div className={styles.imageWrapper}>
+                    <img src={trainer.url} alt={trainer.name} />
+                  </div>
+                  <div className={styles.trainerInfo}>
+                    <h3>{trainer.name}</h3>
+                    <p className={styles.specialty}>{trainer.specialty}</p>
                     <button 
                       onClick={() => handleDelete(trainer)}
-                      className={styles.deleteButton}
+                      className={styles.deleteTrainerButton}
                     >
-                      <FaTrash />
+                      <FaTrash /> Delete Trainer
                     </button>
                   </div>
                 </div>
               ))}
+              {trainers.length === 0 && (
+                <p className={styles.noTrainers}>No trainers available. Add your first trainer above!</p>
+              )}
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
