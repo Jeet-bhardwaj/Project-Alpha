@@ -112,6 +112,30 @@ app.delete('/api/delete', async (req, res) => {
   }
 });
 
+// Add a new endpoint to fetch trainers specifically
+app.get('/api/trainers', async (req, res) => {
+  try {
+    const result = await cloudinary.api.resources({
+      type: 'upload',
+      prefix: 'Trainers/', // Fetch images from Trainers folder
+      max_results: 30
+    });
+
+    const trainers = result.resources.map((img) => ({
+      url: img.secure_url,
+      public_id: img.public_id,
+      // Extract trainer name from public_id (assuming format: "Trainers/name_specialty")
+      name: img.public_id.split('/').pop()?.split('_')[0]?.replace(/-/g, ' ') || 'Trainer',
+      // Extract specialty from public_id if available
+      specialty: img.public_id.split('/').pop()?.split('_')[1]?.replace(/-/g, ' ') || 'Fitness Expert'
+    }));
+
+    res.json(trainers);
+  } catch (error) {
+    console.error('Error fetching trainers from Cloudinary:', error);
+    res.status(500).send('Error fetching trainers');
+  }
+});
 
 app.get('/', (req, res) => {
   res.send('hello world');

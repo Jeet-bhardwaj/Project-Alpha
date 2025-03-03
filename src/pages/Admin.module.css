@@ -387,3 +387,80 @@
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 } 
+
+/* Add these to your Admin.module.css file */
+.tabsContainer {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.activeTab {
+  background: #007bff;
+  color: white;
+}
+
+.trainersSection {
+  margin-top: 20px;
+}
+
+.trainerForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.trainerForm .inputGroup:nth-child(3),
+.trainerForm .inputGroup:nth-child(4),
+.trainerForm button {
+  grid-column: span 2;
+}
+
+.trainerForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.trainersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.trainerItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.trainerThumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.trainerInfo {
+  flex: 1;
+}
+
+.trainerInfo h3 {
+  margin: 0 0 5px 0;
+}
+
+.trainerInfo p {
+  margin: 0;
+  color: #666;
+}
