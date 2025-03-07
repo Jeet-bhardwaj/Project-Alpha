@@ -39,13 +39,13 @@ const TopBar = () => {
                 </div>
                 <div className={styles.rightSection}>
                     <div className={styles.socialLinks}>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/fitnessplatinumgym?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
                             <FaFacebook />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/fit_plat?utm_source=qr&igsh=ZnoxcnhsYm5kbWs4" target="_blank" rel="noopener noreferrer">
                             <FaInstagram />
                         </a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://youtube.com/@fitnessplatinumboxer?si=OzOYckLUTFrGF542" target="_blank" rel="noopener noreferrer">
                             <FaYoutube />
                         </a>
                     </div>

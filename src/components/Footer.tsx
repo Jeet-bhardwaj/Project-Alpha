@@ -29,8 +29,7 @@ const Footer = () => {
           <div>
             <h3 className={styles.title}>Contact Info</h3>
             <div className={styles.links}>
-              <p>123 Fitness Street</p>
-              <p>New York, NY 10001</p>
+              <p>Near Nala, Rajeev Nagar, Patna, Bihar 800024</p>
               <p>Phone: (555) 123-4567</p>
               <p>Email: info@fitnessplatinum.com</p>
             </div>
